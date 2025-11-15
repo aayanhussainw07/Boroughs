@@ -153,7 +153,7 @@ function LandingPage({ quizCompleted, onRetakeQuiz }) {
       </section>
 
       {/* "How it Works" Section - Horizontal Layout */}
-      <section 
+      <section
         className="relative overflow-hidden bg-gradient-to-br from-slate-900 to-slate-800 py-16"
       >
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-green-900/20 via-slate-900 to-slate-900"></div>
@@ -297,8 +297,8 @@ function LandingPage({ quizCompleted, onRetakeQuiz }) {
           </motion.div>
           <div className="grid md:grid-cols-3 gap-6">
             {SOURCE_FEED.map((item, index) => (
-              <motion.div 
-                key={item.source} 
+              <motion.div
+                key={item.source}
                 className="bg-slate-800/60 border border-white/10 rounded-xl p-6"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -366,7 +366,7 @@ function LandingPage({ quizCompleted, onRetakeQuiz }) {
                 gradient: "from-green-600/20 to-green-800/20"
               }
             ].map((feature, index) => (
-              <motion.div 
+              <motion.div
                 key={feature.title}
                 className={`p-6 bg-gradient-to-br ${feature.gradient} bg-slate-950 border border-white/10 rounded-2xl relative overflow-hidden group`}
                 initial={{ opacity: 0, y: 50, rotateX: 15 }}
