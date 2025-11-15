@@ -57,13 +57,6 @@ def save_app_state():
 
 app_state = load_app_state()
 
-<<<<<<< HEAD
-# -------------------------------
-# AUTH ROUTES
-# -------------------------------
-
-@app.route('/api/auth/signup', methods=['POST', 'OPTIONS'])
-=======
 # Initialize with some sample reviews if none exist
 if 'reviews' not in app_state or not app_state['reviews']:
     app_state['reviews'] = {
@@ -114,7 +107,6 @@ if 'reviews' not in app_state or not app_state['reviews']:
 
 # Auth Routes
 @app.route('/api/auth/signup', methods=['POST'])
->>>>>>> reviewsystem
 def signup():
     if request.method == "OPTIONS":
         return '', 200
