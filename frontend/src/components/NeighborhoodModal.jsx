@@ -35,6 +35,17 @@ const NeighborhoodModal = ({ neighborhood, onClose }) => {
     }
   }, [neighborhood]);
 
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (event.key === 'Escape') {
+        onClose();
+      }
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onClose]);
   const handleSubmitReview = async (e) => {
     e.preventDefault();
     if (!newReview.author.trim() || !newReview.comment.trim()) {
