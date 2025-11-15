@@ -55,7 +55,7 @@ function App() {
           socialItems={socialItems}
           displaySocials={true}
           displayItemNumbering={false}
-          menuButtonColor="#fff"
+          menuButtonColor="#10B981"
           openMenuButtonColor="#000"
           changeMenuColorOnOpen={true}
           colors={['#10B981', '#059669']}
