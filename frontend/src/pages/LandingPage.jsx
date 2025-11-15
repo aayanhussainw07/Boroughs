@@ -14,7 +14,7 @@ const SOURCE_FEED = [
   { source: 'Reddit r/nyc', insight: 'Scanning neighborhood Q&A threads for sentiment shifts.' },
 ]
 
-function LandingPage({ quizCompleted }) {
+function LandingPage({ quizCompleted, onRetakeQuiz }) {
   const navigate = useNavigate()
   const [showBackToTop, setShowBackToTop] = useState(false)
   const containerRef = useRef(null)
@@ -47,6 +47,9 @@ function LandingPage({ quizCompleted }) {
       top: 0,
       behavior: 'smooth'
     })
+  const handleRetake = () => {
+    onRetakeQuiz?.()
+    navigate('/quiz')
   }
 
   return (
