@@ -336,6 +336,8 @@ def submit_neighborhood_review(name):
     """
     data = request.get_json()
     author = data.get('author', 'Anonymous')
+    if not author.strip():
+        author = 'Anonymous'
     rating = data.get('rating', 5)
     comment = data.get('comment', '')
 
