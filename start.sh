@@ -4,7 +4,8 @@ set -euo pipefail
 # Simple entrypoint for hosting providers like Railway/Railpack.
 # Installs backend deps (if needed) and launches the Flask API.
 PROJECT_ROOT="$(cd "$(dirname "$0")" && pwd)"
-cd "$PROJECT_ROOT/backend"
+BACKEND_DIR="$PROJECT_ROOT/backend"
+cd "$BACKEND_DIR"
 
 PYTHON_BIN="${PYTHON_BIN:-python3}"
 
@@ -14,7 +15,7 @@ if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
   elif command -v apt-get >/dev/null 2>&1; then
     echo "📦 Installing python3..."
     apt-get update >/dev/null
-    apt-get install -y python3 python3-pip >/dev/null
+    apt-get install -y python3 python3-pip python3-venv >/dev/null
     PYTHON_BIN="python3"
   else
     echo "❌ Neither python3 nor python is available on PATH."
@@ -22,8 +23,17 @@ if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
   fi
 fi
 
-if [ -f requirements.txt ]; then
-  "$PYTHON_BIN" -m pip install --no-cache-dir -r requirements.txt
+VENV_PATH="$BACKEND_DIR/.venv"
+
+if [ ! -d "$VENV_PATH" ]; then
+  echo "⚙️  Creating virtual environment at $VENV_PATH"
+  "$PYTHON_BIN" -m venv "$VENV_PATH"
 fi
 
-exec "$PYTHON_BIN" app.py
+source "$VENV_PATH/bin/activate"
+
+if [ -f requirements.txt ]; then
+  pip install --no-cache-dir -r requirements.txt
+fi
+
+exec python app.py
