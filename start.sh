@@ -34,8 +34,11 @@ fi
 
 source "$VENV_PATH/bin/activate"
 
+PIP_BIN="$VENV_PATH/bin/pip"
+PYTHON_VENV_BIN="$VENV_PATH/bin/python"
+
 if [ -f requirements.txt ]; then
-  pip install --no-cache-dir -r requirements.txt
+  "$PIP_BIN" install --no-cache-dir -r requirements.txt
 fi
 
-exec python app.py
+exec "$PYTHON_VENV_BIN" app.py
