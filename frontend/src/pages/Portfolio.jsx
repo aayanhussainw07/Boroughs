@@ -299,9 +299,6 @@ function Portfolio({ onRetakeQuiz }) {
         </section>
 
         <div className="flex flex-wrap gap-4 justify-between items-center">
-          <p className="text-slate-500 text-sm">
-            Next step: feed your NYC portfolio into the ML predictor to see budget-aligned options.
-          </p>
           <div className="flex flex-wrap gap-3">
             <button
               onClick={() => navigate('/housing')}
