@@ -14,7 +14,9 @@ if ! command -v "$PYTHON_BIN" >/dev/null 2>&1; then
     PYTHON_BIN="python"
   elif command -v apt-get >/dev/null 2>&1; then
     echo "📦 Installing python3..."
+    export DEBIAN_FRONTEND=noninteractive
     apt-get update >/dev/null
+    apt-get install -y apt-utils >/dev/null 2>&1 || true
     apt-get install -y python3 python3-pip python3-venv >/dev/null
     PYTHON_BIN="python3"
   else
