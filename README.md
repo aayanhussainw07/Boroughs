@@ -1,4 +1,4 @@
-# NYC Housing Compatibility Finder
+# Boroughs
 
 A full-stack web application that helps users find their ideal NYC neighborhood by combining ML-based price predictions with lifestyle compatibility scoring.
 
